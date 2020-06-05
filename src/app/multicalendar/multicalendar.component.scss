@@ -1,0 +1,38 @@
+.multicalendar-table {
+    width: 100%;
+}
+
+.multicalendar-table td{
+    border-right: solid;
+    border-right-width: thin;
+    border-right-style: dashed;
+    border-right-color: #A1A1A1;
+}
+
+.arrow-checkin {
+    line-height: 20px;
+    border: solid;
+    border-color: transparent;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+    min-height: 20px;
+}
+
+.arrow-checkout {
+    line-height: 20px;
+    border: solid;
+    border-color: transparent;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    min-height: 20px;
+}
+
+.arrow-body {
+    line-height: 20px;
+    border: solid;
+    border-color: transparent;
+    width: 100%;
+    min-height: 20px;
+}

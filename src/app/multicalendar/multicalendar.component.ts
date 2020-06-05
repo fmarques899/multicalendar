@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Apartment } from './models/apartment.model';
 
 @Component({
   selector: 'app-multicalendar',
@@ -8,9 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MulticalendarComponent implements OnInit {
 
   @Input()
-  unitiesNames: any[];
+  public url: string;
 
-  days: any[] = [];
+  @Input()
+  public apartments: Apartment[] = [];
+
+  public days: any[] = [];
 
   constructor() { }
 

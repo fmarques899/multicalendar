@@ -1,5 +1,28 @@
-<div class="multicalendar">
-  <div class="day" *ngFor="let day of days">
-    {{ day | date }}
-  </div>
-</div>
+<table class="multicalendar-table">
+  <thead>
+    <tr>
+      <td></td>
+      <td *ngFor="let day of days" style="text-align: center;">
+        {{ day | date: 'dd/MM' }}
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let apartment of apartments">
+      <td>{{ apartment.title }}</td>
+      <td *ngFor="let day of days">
+        <div *ngFor="let reservation of apartment.reservations">
+          <div class="arrow-checkin" *ngIf="reservation.checkin.getDate() === day.getDate() && reservation.checkin.getMonth() === day.getMonth()" [ngStyle]="{'background-color': reservation.color}">
+            
+          </div>
+          <div class="arrow-checkout" *ngIf="reservation.checkout.getDate() === day.getDate() && reservation.checkout.getMonth() === day.getMonth()" [ngStyle]="{'background-color': reservation.color}">
+            
+          </div>
+          <div class="arrow-body" *ngIf="day.getTime() > reservation.checkin.getTime() && day.getTime() < reservation.checkout.getTime() && !(reservation.checkout.getDate() === day.getDate() && reservation.checkout.getMonth() === day.getMonth())" [ngStyle]="{'background-color': reservation.color}">
+            
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
