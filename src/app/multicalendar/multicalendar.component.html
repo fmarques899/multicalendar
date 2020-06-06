@@ -12,14 +12,46 @@
       <td>{{ apartment.title }}</td>
       <td *ngFor="let day of days">
         <div *ngFor="let reservation of apartment.reservations">
-          <div class="arrow-checkin" *ngIf="reservation.checkin.getDate() === day.getDate() && reservation.checkin.getMonth() === day.getMonth()" [ngStyle]="{'background-color': reservation.color}">
-            
+          <div class="arrow-checkin tooltip"
+            *ngIf="reservation.checkin.getDate() === day.getDate() && reservation.checkin.getMonth() === day.getMonth()"
+            [ngStyle]="{'background-color': reservation.color}">
+            <div class="tooltiptext">
+              <span>Check-in: {{ reservation.checkin | date: "dd-MM hh:mm"}}</span><br>
+              <span>Check-out: {{ reservation.checkout | date: "dd-MM hh:mm"}}</span><br><br>
+              <span>Hóspede: {{ reservation.guest.name }}</span><br>
+              <span>Telefone: {{ reservation.guest.phone }}</span><br>
+            </div>
           </div>
-          <div class="arrow-checkout" *ngIf="reservation.checkout.getDate() === day.getDate() && reservation.checkout.getMonth() === day.getMonth()" [ngStyle]="{'background-color': reservation.color}">
-            
+          <div class="arrow-checkout tooltip"
+            *ngIf="reservation.checkout.getDate() === day.getDate() && reservation.checkout.getMonth() === day.getMonth()"
+            [ngStyle]="{'background-color': reservation.color}">
+            <div class="tooltiptext">
+              <span>Check-in: {{ reservation.checkin | date: "dd-MM hh:mm"}}</span><br>
+              <span>Check-out: {{ reservation.checkout | date: "dd-MM hh:mm"}}</span><br><br>
+              <span>Hóspede: {{ reservation.guest.name }}</span><br>
+              <span>Telefone: {{ reservation.guest.phone }}</span><br>
+            </div>
           </div>
-          <div class="arrow-body" *ngIf="day.getTime() > reservation.checkin.getTime() && day.getTime() < reservation.checkout.getTime() && !(reservation.checkout.getDate() === day.getDate() && reservation.checkout.getMonth() === day.getMonth())" [ngStyle]="{'background-color': reservation.color}">
-            
+          <div class="arrow-body tooltip"
+            *ngIf="day.getTime() > reservation.checkin.getTime() && day.getTime() < reservation.checkout.getTime() && !(reservation.checkout.getDate() === day.getDate() && reservation.checkout.getMonth() === day.getMonth())"
+            [ngStyle]="{'background-color': reservation.color}">
+            <div class="tooltiptext">
+              <span>Check-in: {{ reservation.checkin | date: "dd-MM hh:mm"}}</span><br>
+              <span>Check-out: {{ reservation.checkout | date: "dd-MM hh:mm"}}</span><br><br>
+              <span>Hóspede: {{ reservation.guest.name }}</span><br>
+              <span>Telefone: {{ reservation.guest.phone }}</span><br>
+            </div>
+          </div>
+        </div>
+        <div *ngFor="let occurrance of apartment.occurrancies">
+          <div 
+            class="occurrance-start tooltip" 
+            *ngIf="day.getDate() === occurrance.startDate.getDate() && day.getMonth() === occurrance.startDate.getMonth()">
+              <div class="tooltiptext">
+                <span>Início: {{ occurrance.startDate | date: "dd-MM hh:mm"}}</span><br>
+                <span>Fim: {{ occurrance.endDate | date: "dd-MM hh:mm"}}</span><br>
+                <span>Tipo: {{ occurrance.type }}</span>
+              </div>
           </div>
         </div>
       </td>

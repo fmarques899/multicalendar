@@ -24,7 +24,7 @@ export class MulticalendarComponent implements OnInit {
 
   private setInitial() {
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 20; i++) {
       const day = new Date();
       const dayNext = this.addDay(day, i);
       this.days.push(dayNext);

@@ -40,6 +40,13 @@ export class AppComponent {
         },
         color: "#f54242"
       }
+      ],
+      "occurrancies": [
+        {
+          startDate: new Date("2020-06-17"),
+          endDate: new Date("2020-06-18"),
+          type: 'Manutenção'
+        }
       ]
     },
     {

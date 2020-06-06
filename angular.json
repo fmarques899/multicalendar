@@ -122,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "multicalendar"
+    }
+  },
+  "defaultProject": "multicalendar",
+  "cli": {
+    "analytics": "b8621589-a3b0-4e56-96e1-a484ad45efcc"
+  }
 }
